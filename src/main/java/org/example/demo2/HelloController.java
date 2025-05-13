@@ -1,70 +1,101 @@
 package org.example.demo2;
-import java.sql.*;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private TextField txt_nome;
+    @FXML
+    private TextField txt_email;
+    @FXML
+    private TextField txt_senha;
+    @FXML
+    private Button btn_enviar;
+
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void autenticarUsuario() {
+        String nome = txt_nome.getText();
+        String email = txt_email.getText();
+        String senha = txt_senha.getText();
+
+        Usuario usuario = buscarUsuario(nome, email, senha);
+        acessarSistema(usuario);
     }
 
-    public class SistemaLogin {
 
-        public static void main(String[] args) {
-            Usuario usuario = autenticar("joao", "abcd"); // teste com joao ou admin
-            acessarSistema(usuario);
-        }
+    private Usuario buscarUsuario(String nome, String email, String senha) {
+        Usuario usuario = null;
 
-        // Método de autenticação
-        public static Usuario autenticar(String nome, String senha) {
-            Usuario usuario = null;
-            String url = "jdbc:sqlite:usuarios.db"; // banco SQLite no mesmo diretório do projeto
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT * FROM usuarios WHERE nome = ? AND email = ? AND senha = ?")) {
 
-            try (Connection conn = DriverManager.getConnection(url);
-                 PreparedStatement stmt = conn.prepareStatement(
-                         "SELECT * FROM usuarios WHERE nome = ? AND senha = ?")) {
+            stmt.setString(1, nome);
+            stmt.setString(2, email);
+            stmt.setString(3, senha);
 
-                stmt.setString(1, nome);
-                stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
 
-                ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                usuario = new Usuario();
+                usuario.setId(rs.getInt("id"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setTipo(rs.getString("tipo"));
 
-                if (rs.next()) {
-                    usuario = new Usuario();
-                    usuario.setId(rs.getInt("id"));
-                    usuario.setNome(rs.getString("nome"));
-                    usuario.setSenha(rs.getString("senha"));
-                    usuario.setTipo(rs.getString("tipo"));
+                if (usuario.getTipo().equalsIgnoreCase("ADMIN")) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo2/SceneAdmin.fxml"));
+                        Scene scene = new Scene(loader.load());
+
+                        Stage stage = new Stage();
+                        stage.setTitle("Tela Principal");
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
 
-            return usuario;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        // Método para controle de acesso
-        public static void acessarSistema(Usuario usuario) {
-            if (usuario == null) {
-                System.out.println("Usuário ou senha inválidos.");
-                return;
-            }
+        return usuario;
+    }
 
-            System.out.println("Bem-vindo, " + usuario.getNome() + "!");
-            System.out.println("Tipo de acesso: " + usuario.getTipo());
-
-            if (usuario.getTipo().equalsIgnoreCase("ADMIN")) {
-                System.out.println("Você pode gerenciar usuários, visualizar relatórios, etc.");
-            } else {
-                System.out.println("Você pode acessar funcionalidades básicas.");
-            }
+    private void acessarSistema(Usuario usuario) {
+        if (usuario == null) {
+            exibirMensagem("Erro", "Usuário, email ou senha inválidos.");
+            return;
         }
     }
 
+
+    private void exibirMensagem(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+
+
 }
+

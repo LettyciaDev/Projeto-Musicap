@@ -1,4 +1,4 @@
-package org.example.projetomusicap;
+package org.example.demo2;
 
 import java.io.Serializable;
 
