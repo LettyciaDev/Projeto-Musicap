@@ -38,51 +38,35 @@ public class Admin {
         musicas = Arquivo.ler();
     }
 
-    public void abrirCadastro() {
-        exibirPaneCreate();
-    }
+    public void abrirCadastro() { exibirPaneCreate(); }
+    public void abrirConsulta() { exibirPaneRead(); }
+    public void abrirRemocao() { exibirPaneDelete(); }
+    public void abrirAtualizar() { exibirPaneUpdate(); }
 
-    public void abrirConsulta() {
-        exibirPaneRead();
-    }
-
-    public void abrirRemocao() {
-        exibirPaneDelete();
-    }
-
-    public void abrirAtualizar() {
-        exibirPaneUpdate();
-    }
-
-    @FXML
     private void exibirPaneCreate() {
         esconderTodos();
         Pane_Create.setVisible(true);
         Pane_Create.setManaged(true);
     }
 
-    @FXML
     private void exibirPaneRead() {
         esconderTodos();
         Pane_Read.setVisible(true);
         Pane_Read.setManaged(true);
     }
 
-    @FXML
     private void exibirPaneUpdate() {
         esconderTodos();
         Pane_Update.setVisible(true);
         Pane_Update.setManaged(true);
     }
 
-    @FXML
     private void exibirPaneDelete() {
         esconderTodos();
         Pane_Delete.setVisible(true);
         Pane_Delete.setManaged(true);
     }
 
-    @FXML
     private void esconderTodos() {
         Pane_Create.setVisible(false);
         Pane_Create.setManaged(false);
@@ -106,11 +90,7 @@ public class Admin {
 
         musicas.add(new Musics(nomeMusic, artista, genero, ano));
         Arquivo.salvar(musicas);
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Info");
-        alert.setContentText("Música adicionada com sucesso!");
-        alert.showAndWait();
+        mostrarAlerta("Música adicionada com sucesso!");
     }
 
     public void btnListarMusicas() {
@@ -139,13 +119,11 @@ public class Admin {
                 m.setArtista(txt_new_artista.getText());
                 m.setGenero(txt_new_gener.getText());
                 m.setAno(Integer.parseInt(txt_new_ano.getText()));
-
                 Arquivo.atualizar(musicas);
                 mostrarAlerta("Música atualizada com sucesso!");
                 return;
             }
         }
-
         mostrarAlerta("Música não encontrada!");
     }
 
