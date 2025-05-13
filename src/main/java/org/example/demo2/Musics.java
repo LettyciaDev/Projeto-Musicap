@@ -1,4 +1,4 @@
-package org.example.projetomusicap;
+package org.example.demo2;
 
 import java.io.Serializable;
 
@@ -15,41 +15,20 @@ public class Musics implements Serializable {
         this.ano = ano;
     }
 
-    public String getNome(){
-        return this.nome;
-    }
+    public String getNome(){ return nome; }
+    public void setNome(String nome){ this.nome = nome; }
 
-    public void setNome(String nome){
-        this.nome = nome;
-    }
+    public String getArtista(){ return artista; }
+    public void setArtista(String artista){ this.artista = artista; }
 
-    public String getArtista(){
-        return this.artista;
-    }
+    public String getGenero(){ return genero; }
+    public void setGenero(String genero){ this.genero = genero; }
 
-    public void setArtista(String artista){
-        this.artista = artista;
-    }
-
-    public String getGenero(){
-        return this.genero;
-    }
-
-    public void setGenero(String genero){
-        this.genero = genero;
-    }
-
-    public int getAno(){
-        return this.ano;
-    }
-
-    public void setAno(int ano){
-        this.ano = ano;
-    }
+    public int getAno(){ return ano; }
+    public void setAno(int ano){ this.ano = ano; }
 
     @Override
     public String toString() {
         return "Nome: " + nome + "\nArtista: " + artista + "\nGênero: " + genero + "\nAno: " + ano;
     }
-
 }

@@ -26,10 +26,12 @@ public class HelloApplication extends Application {
     @FXML
     private Button btn_enviar;
 
+    private Stage primaryStage;
+
     @Override
     public void start(Stage stage) throws IOException {
+        this.primaryStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        fxmlLoader.setController(this);
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Login");
         stage.setScene(scene);
@@ -71,21 +73,20 @@ public class HelloApplication extends Application {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setTipo(rs.getString("tipo"));
 
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo2/TelaMain.fxml"));
-                    Scene scene = new Scene(loader.load());
+                if (usuario.getTipo().equalsIgnoreCase("ADMIN")) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo2/SceneAdmin.fxml"));
+                        Scene scene = new Scene(loader.load());
 
-                    Stage stage = new Stage();
-                    stage.setTitle("Tela Principal");
-                    stage.setScene(scene);
-                    stage.show();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                        Stage stage = new Stage();
+                        stage.setTitle("Tela Principal");
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,11 +97,7 @@ public class HelloApplication extends Application {
     private void acessarSistema(Usuario usuario) {
         if (usuario == null) {
             exibirMensagem("Erro", "Usuário, email ou senha inválidos.");
-            return;
         }
-
-        String mensagem = "Bem-vindo, " + usuario.getNome() + "!\nTipo de acesso: " + usuario.getTipo();
-        exibirMensagem("Login realizado", mensagem);
     }
 
     private void exibirMensagem(String titulo, String mensagem) {

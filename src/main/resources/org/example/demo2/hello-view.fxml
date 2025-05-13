@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.demo2.HelloApplication">
    <children>
-      <Label layoutX="151.0" layoutY="35.0" text="APP  Music" />
-      <Label layoutX="40.0" layoutY="77.0" text="Nome:" />
-      <TextField fx:id="txt_nome" layoutX="40.0" layoutY="94.0" />
-      <Label layoutX="40.0" layoutY="127.0" text="E-mail:" />
-      <TextField fx:id="txt_email" layoutX="40.0" layoutY="144.0" />
-      <Label layoutX="40.0" layoutY="176.0" text="Senha:" />
-      <TextField fx:id="txt_senha" layoutX="40.0" layoutY="193.0" />
-      <Button fx:id="btn_enviar" layoutX="88.0" layoutY="234.0" mnemonicParsing="false" text="Button" />
+      <Label layoutX="40" layoutY="20" text="Nome:" />
+      <TextField fx:id="txt_nome" layoutX="100" layoutY="20" prefWidth="180"/>
+
+      <Label layoutX="40" layoutY="60" text="Email:" />
+      <TextField fx:id="txt_email" layoutX="100" layoutY="60" prefWidth="180"/>
+
+      <Label layoutX="40" layoutY="100" text="Senha:" />
+      <TextField fx:id="txt_senha" layoutX="100" layoutY="100" prefWidth="180"/>
+
+      <Button fx:id="btn_enviar" layoutX="120" layoutY="150" text="Entrar" />
    </children>
-</Pane>
+</AnchorPane>
