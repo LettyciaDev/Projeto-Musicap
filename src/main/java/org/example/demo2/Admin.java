@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class Admin {
@@ -17,6 +20,9 @@ public class Admin {
     @FXML private Pane Pane_Read;
     @FXML private Pane Pane_Update;
     @FXML private Pane Pane_Delete;
+    @FXML private Pane Pane_EditarUsuario;
+    @FXML private Pane Pane_RemoverUsuario;
+    @FXML private Pane Pane_AdicionarUsuario;
 
     @FXML private TextField txt_nome_musc;
     @FXML private TextField txt_artista;
@@ -31,6 +37,13 @@ public class Admin {
 
     @FXML private TextField txt_delet_musc;
 
+    @FXML private TextField txt_nome_user;
+    @FXML private TextField txt_email_user;
+    @FXML private TextField txt_senha_user;
+
+    @FXML private TextField txt_remove_user;
+
+
     @FXML private VBox vboxListagem;
 
     @FXML
@@ -42,6 +55,9 @@ public class Admin {
     public void abrirConsulta() { exibirPaneRead(); }
     public void abrirRemocao() { exibirPaneDelete(); }
     public void abrirAtualizar() { exibirPaneUpdate(); }
+    public void abrirEditar() { exibirPaneEditar(); }
+    public void abrirAdicionar() { exibirPaneAdicionar(); }
+    public void abrirRemover() { exibirPaneRemover(); }
 
     private void exibirPaneCreate() {
         esconderTodos();
@@ -67,6 +83,24 @@ public class Admin {
         Pane_Delete.setManaged(true);
     }
 
+    private void exibirPaneEditar() {
+        esconderTodos();
+        Pane_EditarUsuario.setVisible(true);
+        Pane_EditarUsuario.setManaged(true);
+    }
+
+    private void exibirPaneAdicionar() {
+        esconderTodos();
+        Pane_AdicionarUsuario.setVisible(true);
+        Pane_AdicionarUsuario.setManaged(true);
+    }
+
+    private void exibirPaneRemover() {
+        esconderTodos();
+        Pane_RemoverUsuario.setVisible(true);
+        Pane_RemoverUsuario.setManaged(true);
+    }
+
     private void esconderTodos() {
         Pane_Create.setVisible(false);
         Pane_Create.setManaged(false);
@@ -76,6 +110,12 @@ public class Admin {
         Pane_Update.setManaged(false);
         Pane_Delete.setVisible(false);
         Pane_Delete.setManaged(false);
+        Pane_EditarUsuario.setVisible(false);
+        Pane_EditarUsuario.setManaged(false);
+        Pane_AdicionarUsuario.setVisible(false);
+        Pane_AdicionarUsuario.setManaged(false);
+        Pane_RemoverUsuario.setVisible(false);
+        Pane_RemoverUsuario.setManaged(false);
     }
 
     public void btnAdicionarMusica() {
@@ -142,5 +182,57 @@ public class Admin {
         alert.setTitle("Info");
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    public void btnAdicionarUsuario() {
+        adicionarUsuario();
+    }
+
+    public void adicionarUsuario() {
+        try (Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(
+                    "INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)")) {
+
+            String nome = txt_nome_user.getText();
+            String email = txt_email_user.getText();
+            String senha = txt_senha_user.getText();
+            String tipo = "usuario";
+
+            stmt.setString(1, nome);
+            stmt.setString(2, email);
+            stmt.setString(3, senha);
+            stmt.setString(4, tipo);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Dados inseridos com sucesso!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void btnRemoverUsuario() {
+        removerUsuario();
+    }
+
+    public void removerUsuario() {
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "DELETE FROM usuarios WHERE email = ?")) {
+
+            String email = txt_remove_user.getText();
+
+            stmt.setString(1, email);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Cadastro removido com sucesso.");
+            } else {
+                System.out.println("Nenhum cadastro foi removido. Verifique os dados.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao remover o cadastro: " + e.getMessage());
+        }
     }
 }

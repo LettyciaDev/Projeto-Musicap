@@ -85,7 +85,7 @@ public class HelloApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
+                } // IMPLEMENTAR USUARIO
             }
         } catch (SQLException e) {
             e.printStackTrace();

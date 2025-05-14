@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo2.HelloApplication">
    <children>
       <ImageView fitHeight="640.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
@@ -21,7 +22,7 @@
       <TextField fx:id="txt_email" layoutX="71.0" layoutY="252.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
 
       <Label layoutX="77.0" layoutY="297.0" text="Senha:" textFill="WHITE" />
-      <TextField fx:id="txt_senha" layoutX="71.0" layoutY="320.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
+      <PasswordField fx:id="txt_senha" layoutX="71.0" layoutY="320.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
 
       <Button fx:id="btn_enviar" layoutX="145.0" layoutY="394.0" prefHeight="23.0" prefWidth="84.0"
               style="-fx-background-color: #ffffff; -fx-background-radius:12px; -fx-padding: 5px;" text="Entrar" />

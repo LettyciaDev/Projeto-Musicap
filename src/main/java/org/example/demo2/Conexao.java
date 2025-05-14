@@ -9,7 +9,7 @@ public class Conexao {
         Connection conn = null;
         String url = "jdbc:mysql://localhost:3306/APP_MUSICA";
         String usuario = "root";
-        String senha = "123456";
+        String senha = "86640568";
 
         try {
             conn = DriverManager.getConnection(url, usuario, senha);
