@@ -36,6 +36,8 @@ public class Admin {
     @FXML
     public void initialize() {
         musicas = Arquivo.ler();
+        List<Avaliacao> avaliacoes = Arquivo.converterParaAvaliacoes(musicas);
+        Arquivo.salvarAvaliacoes(avaliacoes);
     }
 
     public void abrirCadastro() { exibirPaneCreate(); }
@@ -53,6 +55,7 @@ public class Admin {
         esconderTodos();
         Pane_Read.setVisible(true);
         Pane_Read.setManaged(true);
+        listarMusicas(musicas);
     }
 
     private void exibirPaneUpdate() {
@@ -93,9 +96,6 @@ public class Admin {
         mostrarAlerta("Música adicionada com sucesso!");
     }
 
-    public void btnListarMusicas() {
-        listarMusicas(musicas);
-    }
 
     public void listarMusicas(List<Musics> musicas) {
         vboxListagem.getChildren().clear();

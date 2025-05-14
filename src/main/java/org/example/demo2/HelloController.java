@@ -69,7 +69,11 @@ public class HelloController {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                } //IMPLEMENTAR USUARIO
+                }
+
+                // Abrir a tela do usário
+                User user = new User();
+                user.abrirTela();
 
             }
 
