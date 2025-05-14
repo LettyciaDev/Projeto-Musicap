@@ -52,6 +52,9 @@ public class HelloApplication extends Application {
         acessarSistema(usuario);
     }
 
+    public void setNome(String nome){
+
+    }
     private Usuario buscarUsuario(String nome, String email, String senha) {
         Usuario usuario = null;
 
@@ -85,7 +88,14 @@ public class HelloApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                } else if(usuario.getTipo().equalsIgnoreCase("USUARIO")){
+                    User user = new User();
+                    user.abrirTela();
+                }  else {
+                    System.out.println("erro");
                 }
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
