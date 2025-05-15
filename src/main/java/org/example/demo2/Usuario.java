@@ -42,7 +42,4 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public void avaliarMusica(Avaliacao musica){
-
-    }
 }
