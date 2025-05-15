@@ -15,17 +15,17 @@
             <Image url="@../../images/bckg.png" />
          </image>
       </ImageView>
-      <Label layoutX="79.0" layoutY="163.0" text="Nome:" textFill="WHITE" />
+      <Label layoutX="79.0" layoutY="163.0" text="Nome:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
       <TextField fx:id="txt_nome" layoutX="71.0" layoutY="186.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
 
-      <Label layoutX="79.0" layoutY="229.0" text="Email:" textFill="WHITE" />
+      <Label layoutX="79.0" layoutY="229.0" text="Email:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
       <TextField fx:id="txt_email" layoutX="71.0" layoutY="252.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
 
-      <Label layoutX="77.0" layoutY="297.0" text="Senha:" textFill="WHITE" />
+      <Label layoutX="77.0" layoutY="297.0" text="Senha:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
       <PasswordField fx:id="txt_senha" layoutX="71.0" layoutY="320.0" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius:12px;" />
 
       <Button fx:id="btn_enviar" layoutX="145.0" layoutY="394.0" prefHeight="23.0" prefWidth="84.0"
-              style="-fx-background-color: #ffffff; -fx-background-radius:12px; -fx-padding: 5px;" text="Entrar" />
-      <Label layoutX="156.0" layoutY="96.0" prefHeight="17.0" prefWidth="61.0" text="Musicap" textFill="WHITE" />
+              style="-fx-background-color: #ffffff; -fx-background-radius:12px; -fx-padding: 5px; -fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Entrar"  />
+      <Label layoutX="156.0" layoutY="96.0" prefHeight="17.0" prefWidth="61.0" text="Musicap" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 16px" />
    </children>
 </AnchorPane>

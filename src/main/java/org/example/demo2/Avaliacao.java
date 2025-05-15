@@ -6,13 +6,15 @@ public class Avaliacao extends Musics implements Serializable {
     private  int nota;
     private String comentario;
     private boolean escuta;
-    private Usuario usuario;
+    private String nomeUsuario;
+
 
     public Avaliacao(String nome, String artista, String genero, int ano){
         super(nome, artista, genero, ano);
         this.nota = 0;
         this.comentario = null;
         this.escuta = false;
+        this.nomeUsuario = SessaoUsuario.getInstancia().getUsuario().getNome();
     }
 
     public int getNota(){
@@ -39,16 +41,13 @@ public class Avaliacao extends Musics implements Serializable {
         this.escuta = escuta;
     }
 
-    public Usuario getUsuario(){
-        return this.usuario;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setUsuario(Usuario usuario){
-        this.usuario = usuario;
-    }
 
     public String mostrarAvaliacao() {
-        return "Nome: "+ usuario.getNome() +"\nMusica: " + getMusica() + "\nArtista: "+ getArtista() + "\nGênero: "+ getGenero() + "\nAno: " + getAno() + "\nnota: " + getNota() + "\nComentário: " + getComentario();
+        return "Nome: "+ getNomeUsuario() +"\nMusica: " + getMusica() + "\nArtista: "+ getArtista() + "\nGênero: "+ getGenero() + "\nAno: " + getAno() + "\nnota: " + getNota() + "\nComentário: " + getComentario();
     }
 
 }
