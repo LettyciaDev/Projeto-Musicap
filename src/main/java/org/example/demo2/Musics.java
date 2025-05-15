@@ -3,20 +3,20 @@ package org.example.demo2;
 import java.io.Serializable;
 
 public class Musics implements Serializable {
-    private String nome;
+    private String musica;
     private String artista;
     private String genero;
     private int ano;
 
-    public Musics(String nome, String artista, String genero, int ano){
-        this.nome = nome;
+    public Musics(String musica, String artista, String genero, int ano){
+        this.musica = musica;
         this.artista = artista;
         this.genero = genero;
         this.ano = ano;
     }
 
-    public String getNome(){ return nome; }
-    public void setNome(String nome){ this.nome = nome; }
+    public String getMusica(){ return musica; }
+    public void setMusica(String nome){ this.musica = nome; }
 
     public String getArtista(){ return artista; }
     public void setArtista(String artista){ this.artista = artista; }
@@ -29,6 +29,6 @@ public class Musics implements Serializable {
 
     @Override
     public String toString() {
-        return "Nome: " + nome + "\nArtista: " + artista + "\nGênero: " + genero + "\nAno: " + ano;
+        return "Música: " + musica + "\nArtista: " + artista + "\nGênero: " + genero + "\nAno: " + ano;
     }
 }

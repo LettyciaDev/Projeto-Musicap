@@ -49,8 +49,6 @@ public class Admin {
     @FXML
     public void initialize() {
         musicas = Arquivo.ler();
-        List<Avaliacao> avaliacoes = Arquivo.converterParaAvaliacoes(musicas);
-        Arquivo.salvarAvaliacoes(avaliacoes);
     }
 
     public void abrirCadastro() { exibirPaneCreate(); }
@@ -154,8 +152,8 @@ public class Admin {
         String nomeMusic = txt_select_msc.getText();
 
         for (Musics m : musicas) {
-            if (m.getNome().equals(nomeMusic)) {
-                m.setNome(txt_new_nome_musc.getText());
+            if (m.getMusica().equals(nomeMusic)) {
+                m.setMusica(txt_new_nome_musc.getText());
                 m.setArtista(txt_new_artista.getText());
                 m.setGenero(txt_new_gener.getText());
                 m.setAno(Integer.parseInt(txt_new_ano.getText()));
