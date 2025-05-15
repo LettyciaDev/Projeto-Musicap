@@ -1,16 +1,18 @@
 package org.example.demo2;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private int id;
     private String nome;
     private String email;
     private String senha;
     private String tipo;
 
-    public int getId() {
+    public int getId(){
         return this.id;
     }
-    public void setId(int id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -42,4 +44,27 @@ public class Usuario {
         this.tipo = tipo;
     }
 
+}
+
+class SessaoUsuario{
+    private static SessaoUsuario instancia;
+    private Usuario usuario;
+
+    private SessaoUsuario() {
+    }
+
+    public static SessaoUsuario getInstancia() {
+        if (instancia == null) {
+            instancia = new SessaoUsuario();
+        }
+        return instancia;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }
