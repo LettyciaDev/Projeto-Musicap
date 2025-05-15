@@ -102,7 +102,7 @@
         <!-- Pane Home -->
         <VBox fx:id="Pane_Home" prefHeight="445.0" prefWidth="308.0" spacing="10.0">
             <HBox>
-                <TextField layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="pesquisar música" style="-fx-background-radius:12px" />
+                <TextField layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="Pesquisar" style="-fx-background-radius:12px" />
                 <Button layoutX="277.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="35.0" style="-fx-background: none">
                <graphic>
                       <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">

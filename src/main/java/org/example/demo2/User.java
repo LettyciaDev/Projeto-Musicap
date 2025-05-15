@@ -39,6 +39,7 @@ public class User {
     public void initialize() {
         musicas = Arquivo.ler();
         musicasAvl = Arquivo.lerAvaliacoes();
+        exibirPaneHome();
 
     }
 
