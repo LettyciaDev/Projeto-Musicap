@@ -32,17 +32,8 @@ public class Arquivo {
     }
 
     public static void excluir(List<Musics> musicas, String nome) {
-        musicas.removeIf(m -> m.getNome().equals(nome));
+        musicas.removeIf(m -> m.getMusica().equals(nome));
         salvar(musicas);
-    }
-
-    // Avaliações
-    public static List<Avaliacao> converterParaAvaliacoes(List<Musics> musicas) {
-        List<Avaliacao> avaliacoes = new ArrayList<>();
-        for (Musics m : musicas) {
-            avaliacoes.add(new Avaliacao(m.getNome(), m.getArtista(), m.getGenero(), m.getAno()));
-        }
-        return avaliacoes;
     }
 
     public static void salvarAvaliacoes(List<Avaliacao> avaliacoes) {
@@ -68,7 +59,7 @@ public class Arquivo {
     }
 
     public static void excluirAvaliacao(List<Avaliacao> avaliacoes, String nome) {
-        avaliacoes.removeIf(a -> a.getNome().equals(nome));
+        avaliacoes.removeIf(a -> a.getMusica().equals(nome));
         atualizarAvaliacao(avaliacoes);
     }
 }

@@ -20,7 +20,7 @@
             <Image url="@../../images/bckg.png" />
          </image>
       </ImageView>
-      <Label layoutX="156.0" layoutY="58.0" prefHeight="17.0" prefWidth="49.0" text="Musicap" textFill="WHITE" />
+      <Label layoutX="157.0" layoutY="39.0" prefHeight="17.0" prefWidth="49.0" text="Musicap" textFill="WHITE" />
       <ButtonBar layoutX="1.0" layoutY="568.0" prefHeight="72.0" prefWidth="360.0" style="-fx-background-color: #fff">
         <buttons>
           <Button fx:id="btn_home" minWidth="52.0" mnemonicParsing="false" onMouseClicked="#exibirPaneHome" prefHeight="32.0" style="-fx-background: none">
@@ -63,7 +63,7 @@
       </ButtonBar>
 
 
-    <StackPane layoutX="27.0" layoutY="116.0" prefHeight="452.0" prefWidth="308.0">
+    <StackPane layoutX="27.0" layoutY="129.0" prefHeight="439.0" prefWidth="308.0">
 
         <!-- Pane Perfil -->
         <VBox fx:id="Pane_Profile" managed="false" spacing="10.0" visible="false">
@@ -74,23 +74,16 @@
 
         <!-- Pane Lista de musicas -->
         <VBox fx:id="Pane_List" managed="false" spacing="10.0" visible="false">
+            <Label text="Sua Lista" textFill="#fff"/>
             <children>
-                <VBox>
-
-                </VBox>
+                <ScrollPane fx:id="scrollPaneList" fitToWidth="true"
+                            style="-fx-background-color: transparent; -fx-background: transparent;"
+                            vbarPolicy="AS_NEEDED">
+                    <content>
+                        <VBox fx:id="vboxList" spacing="5.0" style="-fx-background-color: transparent;" />
+                    </content>
+                </ScrollPane>
             </children>
-        </VBox>
-
-        <!-- Pane Review de Musicas -->
-        <VBox fx:id="Pane_Review" spacing="10.0">
-            <children>
-                <Label text="Avaliações" textFill="WHITE" />
-            </children>
-            <ScrollPane fx:id="scrollPaneReview" fitToWidth="true" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
-                <content>
-                    <VBox fx:id="vboxReview" spacing="5.0" />
-                </content>
-            </ScrollPane>
         </VBox>
 
         <VBox fx:id="Pane_Avaliacao" managed="false" spacing="10.0" visible="false">
@@ -107,7 +100,7 @@
         </VBox>
 
         <!-- Pane Home -->
-        <VBox fx:id="Pane_Home" prefHeight="445.0" prefWidth="308.0" spacing="10.0" managed="false" visible="false">
+        <VBox fx:id="Pane_Home" managed="false" prefHeight="445.0" prefWidth="308.0" spacing="10.0" visible="false">
             <HBox>
                 <TextField layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="pesquisar música" style="-fx-background-radius:12px" />
                 <Button layoutX="277.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="35.0" style="-fx-background: none">
@@ -124,9 +117,26 @@
                     <Font size="14.0" />
                 </font>
             </Label>
-            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true"
+                        style="-fx-background-color: transparent; -fx-background: transparent;"
+                        vbarPolicy="AS_NEEDED">
                 <content>
-                    <VBox fx:id="vboxMusicas" spacing="5.0" />
+                    <VBox fx:id="vboxMusicas" spacing="5.0" style="-fx-background-color: transparent;" />
+                </content>
+            </ScrollPane>
+
+        </VBox>
+
+        <!-- Pane Review de Musicas -->
+        <VBox fx:id="Pane_Review" prefHeight="429.0" prefWidth="308.0" spacing="10.0">
+            <children>
+                <Label text="Avaliações" textFill="WHITE" />
+            </children>
+            <ScrollPane fx:id="scrollPaneReview" fitToWidth="true"
+                        style="-fx-background-color: transparent; -fx-background: transparent;"
+                        vbarPolicy="AS_NEEDED">
+                <content>
+                    <VBox fx:id="vboxReview" spacing="5.0" style="-fx-background-color: transparent;" />
                 </content>
             </ScrollPane>
         </VBox>
