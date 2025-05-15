@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,12 +31,18 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Poppins-SemiBold.ttf"), 12);
         this.primaryStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 360, 640);
         stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
+
+        Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/Poppins-SemiBold.ttf"), 12);
+        System.out.println("Fonte carregada: " + (font != null ? font.getName() : "Erro"));
+
+
     }
 
     @FXML
@@ -49,12 +56,14 @@ public class HelloApplication extends Application {
         String senha = txt_senha.getText();
 
         Usuario usuario = buscarUsuario(nome, email, senha);
+
+        // Armazena o nome do usuario logado
+        if(usuario != null){
+            SessaoUsuario.getInstancia().setUsuario(usuario);
+        }
         acessarSistema(usuario);
     }
 
-    public void setNome(String nome){
-
-    }
     private Usuario buscarUsuario(String nome, String email, String senha) {
         Usuario usuario = null;
 

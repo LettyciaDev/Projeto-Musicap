@@ -21,7 +21,6 @@ public class User {
     private Avaliacao avaliacaoSelecionada;
     private List<Musics> musicas;
 
-    public String user;
     @FXML private Pane Pane_Home;
     @FXML private Pane Pane_Review;
     @FXML private Pane Pane_List;
@@ -56,10 +55,6 @@ public class User {
         }
     }
 
-    public void setNome(String nome){
-        this.user = nome;
-    }
-
     public void esconderTodos(){
         Pane_Home.setVisible(false); Pane_Home.setManaged(false);
         Pane_Review.setVisible(false); Pane_Review.setManaged(false);
@@ -87,6 +82,7 @@ public class User {
         esconderTodos();
         Pane_List.setVisible(true);
         Pane_List.setManaged(true);
+        listarUsuarioMusicas(musicasAvl);
 
     }
 
@@ -106,10 +102,6 @@ public class User {
             VBox.setVgrow(scrollPaneMusicas, Priority.ALWAYS);
             VBox.setMargin(musica, new Insets(2)); // importa javafx.geometry.Insets
 
-            scrollPaneMusicas.setStyle("-fx-background-color: none");
-            if (scrollPaneMusicas.getContent() != null) {
-                scrollPaneMusicas.getContent().setStyle("-fx-background-color: transparent;");
-            }
 
             // Evento de clique para cada item
             musica.setOnMouseClicked(event -> {
@@ -168,10 +160,6 @@ public class User {
             VBox.setVgrow(scrollPaneReview, Priority.ALWAYS);
             VBox.setMargin(musica, new Insets(2));
 
-            scrollPaneMusicas.setStyle("-fx-background-color: none");
-            if (scrollPaneReview.getContent() != null) {
-                scrollPaneReview.getContent().setStyle("-fx-background-color: transparent;");
-            }
 
             musica.setOnMouseClicked(event -> {
                 musicasAvl.remove(m);
@@ -185,20 +173,16 @@ public class User {
 
     }
 
-    public void listarUsuarioMusicas(List<Avaliacao> musicasAvl, Usuario usuario) {
+    public void listarUsuarioMusicas(List<Avaliacao> musicasAvl) {
         vboxList.getChildren().clear();
 
         for (Avaliacao musica : musicasAvl) {
-            if(musica.getUsuario().equals(usuario.getNome())) {
+            if(musica.getNomeUsuario().equals(SessaoUsuario.getInstancia().getUsuario().getNome())) {
                 Label musicaAvl = new Label(musica.mostrarAvaliacao());
                 musicaAvl.setStyle("-fx-font-size: 14px; -fx-text-fill: #ee2b6c; -fx-font-weight: bold; -fx-background-color: #fff; -fx-padding: 5px; -fx-background-radius: 5px");
-                VBox.setVgrow(scrollPaneMusicas, Priority.ALWAYS);
+                VBox.setVgrow(scrollPaneList, Priority.ALWAYS);
                 VBox.setMargin(musicaAvl, new Insets(2)); // importa javafx.geometry.Insets
 
-                scrollPaneList.setStyle("-fx-background-color: none");
-                if (scrollPaneList.getContent() != null) {
-                    scrollPaneList.getContent().setStyle("-fx-background-color: transparent;");
-                }
             }
         }
     }

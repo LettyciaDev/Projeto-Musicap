@@ -20,7 +20,7 @@
             <Image url="@../../images/bckg.png" />
          </image>
       </ImageView>
-      <Label layoutX="157.0" layoutY="39.0" prefHeight="17.0" prefWidth="49.0" text="Musicap" textFill="WHITE" />
+      <Label layoutX="157.0" layoutY="39.0" prefHeight="17.0" prefWidth="49.0" text="Musicap" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
       <ButtonBar layoutX="1.0" layoutY="568.0" prefHeight="72.0" prefWidth="360.0" style="-fx-background-color: #fff">
         <buttons>
           <Button fx:id="btn_home" minWidth="52.0" mnemonicParsing="false" onMouseClicked="#exibirPaneHome" prefHeight="32.0" style="-fx-background: none">
@@ -74,7 +74,7 @@
 
         <!-- Pane Lista de musicas -->
         <VBox fx:id="Pane_List" managed="false" spacing="10.0" visible="false">
-            <Label text="Sua Lista" textFill="#fff"/>
+            <Label text="Sua Lista" textFill="#fff" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px"/>
             <children>
                 <ScrollPane fx:id="scrollPaneList" fitToWidth="true"
                             style="-fx-background-color: transparent; -fx-background: transparent;"
@@ -91,16 +91,16 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-                <Label text="Nota:" textFill="WHITE" />
+                <Label text="Nota:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                 <TextField fx:id="txt_nota_msc" style="-fx-background-radius:12px;" />
-                <Label text="Comentário:" textFill="WHITE" />
+                <Label text="Comentário:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                 <TextField fx:id="txt_comentario" style="-fx-background-radius:12px;" />
                 <Button onAction="#btnSalvarAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="enviar" />
             </children>
         </VBox>
 
         <!-- Pane Home -->
-        <VBox fx:id="Pane_Home" managed="false" prefHeight="445.0" prefWidth="308.0" spacing="10.0" visible="false">
+        <VBox fx:id="Pane_Home" prefHeight="445.0" prefWidth="308.0" spacing="10.0">
             <HBox>
                 <TextField layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="pesquisar música" style="-fx-background-radius:12px" />
                 <Button layoutX="277.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="35.0" style="-fx-background: none">
@@ -112,7 +112,7 @@
                       </ImageView>
                </graphic></Button>
             </HBox>
-            <Label layoutX="27.0" layoutY="179.0" text="Em alta" textFill="WHITE">
+            <Label layoutX="27.0" layoutY="179.0" text="Em alta" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px">
                 <font>
                     <Font size="14.0" />
                 </font>
@@ -128,9 +128,9 @@
         </VBox>
 
         <!-- Pane Review de Musicas -->
-        <VBox fx:id="Pane_Review" prefHeight="429.0" prefWidth="308.0" spacing="10.0">
+        <VBox fx:id="Pane_Review" prefHeight="429.0" prefWidth="308.0" spacing="10.0" managed="false" visible="false">
             <children>
-                <Label text="Avaliações" textFill="WHITE" />
+                <Label text="Avaliações" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" />
             </children>
             <ScrollPane fx:id="scrollPaneReview" fitToWidth="true"
                         style="-fx-background-color: transparent; -fx-background: transparent;"

@@ -82,15 +82,15 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Label text="Nome atual da música" textFill="WHITE" />
+               <Label text="Nome atual da música" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_select_msc" style="-fx-background-radius:12px;" />
-               <Label text="Novo Nome" textFill="WHITE" />
+               <Label text="Novo Nome" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_new_nome_musc" style="-fx-background-radius:12px;" />
-               <Label text="Novo Artista" textFill="WHITE" />
+               <Label text="Novo Artista" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_new_artista" style="-fx-background-radius:12px;" />
-               <Label text="Novo Gênero" textFill="WHITE" />
+               <Label text="Novo Gênero" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_new_gener" style="-fx-background-radius:12px;" />
-               <Label text="Novo Ano" textFill="WHITE" />
+               <Label text="Novo Ano" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_new_ano" style="-fx-background-radius:12px;" />
                <Button onAction="#btnAtualizarMusica" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Atualizar" />
             </children>
@@ -102,7 +102,7 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Label text="Nome da Música para Excluir" textFill="WHITE" />
+               <Label text="Nome da Música para Excluir" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_delet_musc" style="-fx-background-radius:12px;" />
                <Button onAction="#btnRemoverMusica" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Remover" />
             </children>
@@ -114,13 +114,13 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Label text="Nome da Música" textFill="WHITE" />
+               <Label text="Nome da Música" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_nome_musc" style="-fx-background-radius:12px;" />
-               <Label text="Artista" textFill="WHITE" />
+               <Label text="Artista" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_artista" style="-fx-background-radius:12px;" />
-               <Label text="Gênero" textFill="WHITE" />
+               <Label text="Gênero" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_gener" style="-fx-background-radius:12px;" />
-               <Label text="Ano" textFill="WHITE" />
+               <Label text="Ano" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_ano" style="-fx-background-radius:12px;" />
                <Button onAction="#btnAdicionarMusica" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Adicionar" />
             </children>
@@ -144,11 +144,11 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Label text="Nome do Usuário" textFill="WHITE" />
+               <Label text="Nome do Usuário" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_nome_user" style="-fx-background-radius:12px;" />
-               <Label text="E-mail" textFill="WHITE" />
+               <Label text="E-mail" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_email_user" style="-fx-background-radius:12px;" />
-               <Label text="Senha" textFill="WHITE" />
+               <Label text="Senha" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <PasswordField fx:id="txt_senha_user" style="-fx-background-radius:12px;" />
                <Button onAction="#btnAdicionarUsuario" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Adicionar" />
             </children>
@@ -160,39 +160,39 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Label text="E-mail do usuário" textFill="WHITE" />
+               <Label text="E-mail do usuário" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
                <TextField fx:id="txt_remove_user" style="-fx-background-radius:12px;" />
                <Button onAction="#btnRemoverUsuario" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Remover" />
             </children>
          </VBox>
 
       </StackPane>
-   <Label layoutX="22.0" layoutY="125.0" text="Cadastrar" textFill="WHITE">
+   <Label layoutX="22.0" layoutY="125.0" text="Cadastrar" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 10px">
       <font>
          <Font size="10.0" />
       </font>
    </Label>
-   <Label layoutX="88.0" layoutY="125.0" prefHeight="15.0" prefWidth="35.0" text="Listar" textFill="WHITE">
+   <Label layoutX="88.0" layoutY="125.0" prefHeight="15.0" prefWidth="35.0" text="Listar" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold';">
       <font>
          <Font size="10.0" />
       </font>
    </Label>
-   <Label layoutX="130.0" layoutY="125.0" prefHeight="15.0" prefWidth="44.0" text="Atualizar" textFill="WHITE">
+   <Label layoutX="130.0" layoutY="125.0" prefHeight="15.0" prefWidth="44.0" text="Atualizar" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold';">
       <font>
          <Font size="10.0" />
       </font>
    </Label>
-   <Label layoutX="186.0" layoutY="125.0" prefHeight="15.0" prefWidth="44.0" text="Excluir" textFill="WHITE">
+   <Label layoutX="186.0" layoutY="125.0" prefHeight="15.0" prefWidth="44.0" text="Excluir" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold';">
       <font>
          <Font size="10.0" />
       </font>
    </Label>
-   <Label layoutX="237.0" layoutY="124.0" text="Editar" textFill="WHITE">
+   <Label layoutX="237.0" layoutY="124.0" text="Editar" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold';">
       <font>
          <Font size="10.0" />
       </font>
    </Label>
-   <Label layoutX="230.0" layoutY="135.0" text="Usuários" textFill="WHITE">
+   <Label layoutX="230.0" layoutY="135.0" text="Usuários" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold';">
       <font>
          <Font size="10.0" />
       </font>
