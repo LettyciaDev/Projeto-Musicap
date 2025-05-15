@@ -20,7 +20,7 @@
             <Image url="@../../images/bckg.png" />
          </image>
       </ImageView>
-      <Label layoutX="157.0" layoutY="39.0" prefHeight="17.0" prefWidth="49.0" text="Musicap" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
+      <Label layoutX="152.0" layoutY="36.0" prefHeight="20.0" prefWidth="58.0" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Musicap" textFill="WHITE" />
       <ButtonBar layoutX="1.0" layoutY="568.0" prefHeight="72.0" prefWidth="360.0" style="-fx-background-color: #fff">
         <buttons>
           <Button fx:id="btn_home" minWidth="52.0" mnemonicParsing="false" onMouseClicked="#exibirPaneHome" prefHeight="32.0" style="-fx-background: none">
@@ -50,35 +50,17 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_profile" mnemonicParsing="false" onMouseClicked="#exibirPaneProfile" style="-fx-background: none">
-               <graphic>
-                  <ImageView fitHeight="34.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/profile.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
         </buttons>
       </ButtonBar>
 
 
     <StackPane layoutX="27.0" layoutY="129.0" prefHeight="439.0" prefWidth="308.0">
 
-        <!-- Pane Perfil -->
-        <VBox fx:id="Pane_Profile" managed="false" spacing="10.0" visible="false">
-            <children>
-
-            </children>
-        </VBox>
-
         <!-- Pane Lista de musicas -->
         <VBox fx:id="Pane_List" managed="false" spacing="10.0" visible="false">
-            <Label text="Sua Lista" textFill="#fff" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px"/>
+            <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Sua Lista" textFill="#fff" />
             <children>
-                <ScrollPane fx:id="scrollPaneList" fitToWidth="true"
-                            style="-fx-background-color: transparent; -fx-background: transparent;"
-                            vbarPolicy="AS_NEEDED">
+                <ScrollPane fx:id="scrollPaneList" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED">
                     <content>
                         <VBox fx:id="vboxList" spacing="5.0" style="-fx-background-color: transparent;" />
                     </content>
@@ -91,9 +73,9 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-                <Label text="Nota:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
+                <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Nota:" textFill="WHITE" />
                 <TextField fx:id="txt_nota_msc" style="-fx-background-radius:12px;" />
-                <Label text="Comentário:" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" />
+                <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Comentário:" textFill="WHITE" />
                 <TextField fx:id="txt_comentario" style="-fx-background-radius:12px;" />
                 <Button onAction="#btnSalvarAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="enviar" />
             </children>
@@ -112,14 +94,12 @@
                       </ImageView>
                </graphic></Button>
             </HBox>
-            <Label layoutX="27.0" layoutY="179.0" text="Em alta" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px">
+            <Label layoutX="27.0" layoutY="179.0" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Em alta" textFill="WHITE">
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true"
-                        style="-fx-background-color: transparent; -fx-background: transparent;"
-                        vbarPolicy="AS_NEEDED">
+            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED">
                 <content>
                     <VBox fx:id="vboxMusicas" spacing="5.0" style="-fx-background-color: transparent;" />
                 </content>
@@ -130,17 +110,35 @@
         <!-- Pane Review de Musicas -->
         <VBox fx:id="Pane_Review" prefHeight="429.0" prefWidth="308.0" spacing="10.0" managed="false" visible="false">
             <children>
-                <Label text="Avaliações" textFill="WHITE" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" />
+                <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Avaliações" textFill="WHITE" />
             </children>
-            <ScrollPane fx:id="scrollPaneReview" fitToWidth="true"
-                        style="-fx-background-color: transparent; -fx-background: transparent;"
-                        vbarPolicy="AS_NEEDED">
+            <ScrollPane fx:id="scrollPaneReview" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED">
                 <content>
                     <VBox fx:id="vboxReview" spacing="5.0" style="-fx-background-color: transparent;" />
                 </content>
             </ScrollPane>
         </VBox>
 
+        <VBox fx:id="Pane_EditarAvaliacao" spacing="10.0" managed="false" visible="false">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+<!--                <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" onAction="#btnExcluirAvaliacao" style="-fx-background-color: none">-->
+<!--               <graphic>-->
+<!--                  <ImageView fitHeight="24.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                     <image>-->
+<!--                        <Image url="@../../images/delete.png" />-->
+<!--                     </image>-->
+<!--                  </ImageView>-->
+<!--               </graphic></Button>-->
+                <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Nota:" textFill="WHITE" />
+                <TextField fx:id="txt_nova_nota_msc" style="-fx-background-radius:12px;" />
+                <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Comentário:" textFill="WHITE" />
+                <TextField fx:id="txt_novo_comentario" style="-fx-background-radius:12px;" />
+                <Button onAction="#btnSalvarNovaAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="salvar" />
+            </children>
+        </VBox>
     </StackPane>
 
 </Pane>
