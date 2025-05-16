@@ -220,9 +220,10 @@ public class User {
             alert.setContentText("Avaliação atualizada com sucesso!");
             alert.showAndWait();
 
+            exibirPaneList();
             // Opcional: esconde o painel de edição após salvar
-            Pane_EditarAvaliacao.setVisible(false);
-            Pane_EditarAvaliacao.setManaged(false);
+            //Pane_EditarAvaliacao.setVisible(false);
+            //Pane_EditarAvaliacao.setManaged(false);
             avaliacaoSelecionada = null;
 
         } catch (NumberFormatException e) {
@@ -231,6 +232,25 @@ public class User {
             alert.setContentText("Nota inválida. Digite um número.");
             alert.showAndWait();
         }
-
     }
+
+    @FXML
+    public void btnExcluirAvaliacao(ActionEvent event) {
+        if (avaliacaoSelecionada == null) return;
+
+        musicasAvl.remove(avaliacaoSelecionada);
+
+        Arquivo.salvarAvaliacoes(musicasAvl);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Info");
+        alert.setContentText("Avaliação excluída com sucesso!");
+        alert.showAndWait();
+
+        listarUsuarioMusicas(musicasAvl);
+
+        exibirPaneList();
+        avaliacaoSelecionada = null;
+    }
+
 }
