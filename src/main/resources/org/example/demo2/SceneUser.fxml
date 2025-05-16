@@ -97,7 +97,7 @@
                 <TextField fx:id="txt_nota_msc" style="-fx-background-radius:12px;" />
                 <Label style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Comentário:" textFill="WHITE" />
                 <TextField fx:id="txt_comentario" style="-fx-background-radius:12px;" />
-                <Button onAction="#btnSalvarAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="enviar" />
+                <Button onAction="#btnSalvarAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Enviar" />
             </children>
         </VBox>
 
