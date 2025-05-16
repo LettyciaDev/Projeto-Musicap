@@ -24,7 +24,7 @@
       <Label layoutX="152.0" layoutY="36.0" prefHeight="20.0" prefWidth="58.0" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 12px" text="Musicap" textFill="WHITE" />
     <HBox layoutX="0.0" layoutY="568.0" prefHeight="72.0" prefWidth="360.0" spacing="0" alignment="CENTER" style="-fx-background-color: #fff" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Region prefWidth="20.0" />
+            <Region prefWidth="35.0" />
             <Button fx:id="btn_home" minWidth="52.0" mnemonicParsing="false" onMouseClicked="#exibirPaneHome" prefHeight="32.0" style="-fx-background: none">
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
@@ -54,7 +54,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Region prefWidth="20.0" />
+            <Region prefWidth="35.0" />
         </children>
     </HBox>
 
