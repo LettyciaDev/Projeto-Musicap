@@ -54,7 +54,7 @@
          </ImageView>
       </graphic>
    </Button>
-      <Button layoutX="230.0" layoutY="96.0" onAction="#abrirEditar" prefHeight="15.0" prefWidth="40.0" style="-fx-background: none">
+      <Button layoutX="232.0" layoutY="96.0" onAction="#abrirEditar" prefHeight="15.0" prefWidth="40.0" style="-fx-background: none">
       <graphic>
          <ImageView fitHeight="24.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
             <image>
