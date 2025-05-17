@@ -123,7 +123,8 @@ public class HelloApplication extends Application {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Stage stage = (Stage) btn_enviar.getScene().getWindow();
+        stage.close();
         return usuario;
     }
 

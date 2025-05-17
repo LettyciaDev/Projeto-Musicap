@@ -15,7 +15,7 @@
             <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="273.0" fitWidth="271.0" layoutX="43.0" layoutY="-10.0" preserveRatio="true">
+      <ImageView fitHeight="236.0" fitWidth="244.0" layoutX="60.0" layoutY="-7.0" preserveRatio="true">
          <image>
             <Image url="@../../images/musicap_icon.png" />
          </image>

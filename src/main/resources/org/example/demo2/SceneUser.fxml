@@ -17,7 +17,7 @@
 <Pane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo2.User">
       <ImageView fitHeight="640.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/bckg.png" />
+            <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
     <HBox alignment="CENTER" layoutX="0.0" layoutY="583.0" prefHeight="57.0" prefWidth="360.0" spacing="0" style="-fx-background-color: #fff" xmlns:fx="http://javafx.com/fxml/1">
