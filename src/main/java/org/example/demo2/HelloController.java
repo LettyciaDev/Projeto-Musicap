@@ -74,13 +74,13 @@ public class HelloController {
                 // Abrir a tela do usário
                 User user = new User();
                 user.abrirTela();
-
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Stage stage = (Stage) btn_enviar.getScene().getWindow();
+        stage.close();
         return usuario;
     }
 
