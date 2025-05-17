@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -23,6 +20,12 @@ public class User {
     private List<Avaliacao> musicasAvl;
     private Avaliacao avaliacaoSelecionada;
     private List<Musics> musicas;
+
+    private final String estiloPadrao = "-fx-background-color: transparent;";
+    private final String estiloAtivo = "-fx-background-color: transparent; " +
+            "-fx-border-color: transparent transparent #6e1fb7 transparent; " +
+            "-fx-border-width: 0 0 2px 0;";
+
 
     @FXML private Pane Pane_Home;
     @FXML private Pane Pane_Review;
@@ -39,6 +42,9 @@ public class User {
     @FXML private ScrollPane scrollPaneMusicas;
     @FXML private ScrollPane scrollPaneReview;
     @FXML private ScrollPane scrollPaneList;
+    @FXML private Button btn_home;
+    @FXML private Button btn_review;
+    @FXML private Button btn_list;
 
     @FXML
     public void initialize() {
@@ -79,6 +85,7 @@ public class User {
         Pane_Home.setVisible(true);
         Pane_Home.setManaged(true);
         listarMusicas(musicas);
+        setBotaoAtivo(btn_home);
     }
 
     public void exibirPaneReview(){
@@ -86,7 +93,7 @@ public class User {
         Pane_Review.setVisible(true);
         Pane_Review.setManaged(true);
         ListarAvaliacoes(musicasAvl);
-
+        setBotaoAtivo(btn_review);
     }
 
     public void exibirPaneList(){
@@ -94,7 +101,17 @@ public class User {
         Pane_List.setVisible(true);
         Pane_List.setManaged(true);
         listarUsuarioMusicas(musicasAvl);
+        setBotaoAtivo(btn_list);
+    }
 
+    private void setBotaoAtivo(Button botaoAtivo) {
+        // Remove estilo ativo de todos
+        btn_home.setStyle(estiloPadrao);
+        btn_review.setStyle(estiloPadrao);
+        btn_list.setStyle(estiloPadrao);
+
+        // Aplica estilo no botão clicado
+        botaoAtivo.setStyle(estiloAtivo);
     }
 
     public void listarMusicas(List<Musics> musicas) {
@@ -102,7 +119,7 @@ public class User {
 
         for (Musics musicaObj : musicas) {
             Label musica = new Label(musicaObj.toString());
-            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #ee2b6c; -fx-font-weight: bold; -fx-background-color: #fff; -fx-padding: 5px; -fx-background-radius: 5px");
+            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-background-color: #6e1fb7; -fx-padding: 5px; -fx-background-radius: 5px; -fx-pref-width:300px;");
             VBox.setVgrow(scrollPaneMusicas, Priority.ALWAYS);
             VBox.setMargin(musica, new Insets(2)); // importa javafx.geometry.Insets
 
@@ -160,7 +177,7 @@ public class User {
         vboxReview.getChildren().clear();
         for (Avaliacao m : musicasAvl) {
             Label musica = new Label(m.mostrarAvaliacao());
-            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #ee2b6c; -fx-font-weight: bold; -fx-background-color: #fff; -fx-padding: 5px; -fx-background-radius: 5px");
+            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-background-color: #6e1fb7; -fx-padding: 5px; -fx-background-radius: 5px; -fx-pref-width:300px;");
             VBox.setVgrow(scrollPaneReview, Priority.ALWAYS);
             VBox.setMargin(musica, new Insets(2));
 
@@ -179,7 +196,7 @@ public class User {
         for (Avaliacao musica : musicasAvl) {
             if (musica.getNomeUsuario().equals(nomeUsuarioLogado)) {
                 Label musicaAvl = new Label(musica.mostrarAvaliacao());
-                musicaAvl.setStyle("-fx-font-size: 14px; -fx-text-fill: #ee2b6c; -fx-font-weight: bold; -fx-background-color: #fff; -fx-padding: 5px; -fx-background-radius: 5px");
+                musicaAvl.setStyle("-fx-font-size: 14px; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-background-color: #6e1fb7; -fx-padding: 5px; -fx-background-radius: 5px; -fx-pref-width:300px;");
                 VBox.setVgrow(scrollPaneList, Priority.ALWAYS);
                 VBox.setMargin(musicaAvl, new Insets(2));
                 vboxList.getChildren().add(musicaAvl);
