@@ -53,9 +53,6 @@ public class HelloApplication extends Application {
             }
         });
 
-        Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/Poppins-SemiBold.ttf"), 12);
-        System.out.println("Fonte carregada: " + (font != null ? font.getName() : "Erro"));
-
 
     }
 
@@ -108,12 +105,21 @@ public class HelloApplication extends Application {
                         stage.setTitle("Tela Principal");
                         stage.setScene(scene);
                         stage.show();
+
+                        Image icon = new Image(getClass().getResource("/org/images/sound-wave.png").toString());
+                        stage.getIcons().add(icon);
+
+                        Stage tela = (Stage) btn_enviar.getScene().getWindow();
+                        tela.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else if(usuario.getTipo().equalsIgnoreCase("USUARIO")){
                     User user = new User();
                     user.abrirTela();
+
+                    Stage tela = (Stage) btn_enviar.getScene().getWindow();
+                    tela.close();
                 }  else {
                     System.out.println("erro");
                 }
@@ -123,8 +129,6 @@ public class HelloApplication extends Application {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Stage stage = (Stage) btn_enviar.getScene().getWindow();
-        stage.close();
         return usuario;
     }
 

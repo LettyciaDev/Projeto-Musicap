@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -39,12 +40,14 @@ public class User {
     @FXML private TextField txt_comentario;
     @FXML private TextField txt_nova_nota_msc;
     @FXML private TextField txt_novo_comentario;
+    @FXML private TextField txt_pesquisa;
     @FXML private ScrollPane scrollPaneMusicas;
     @FXML private ScrollPane scrollPaneReview;
     @FXML private ScrollPane scrollPaneList;
     @FXML private Button btn_home;
     @FXML private Button btn_review;
     @FXML private Button btn_list;
+    @FXML private Button btn_pesquisa;
 
     @FXML
     public void initialize() {
@@ -62,6 +65,10 @@ public class User {
             stage.setTitle("Musicap");
             stage.setScene(scene);
             stage.show();
+
+            Image icon = new Image(getClass().getResource("/org/images/sound-wave.png").toString());
+            stage.getIcons().add(icon);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -113,6 +120,52 @@ public class User {
         // Aplica estilo no botão clicado
         botaoAtivo.setStyle(estiloAtivo);
     }
+
+    @FXML
+    public void btnPesquisarMusica() {
+        String musicaSearch = txt_pesquisa.getText().trim().toLowerCase();
+        boolean encontrada = false;
+
+        vboxMusicas.getChildren().clear(); // Limpa antes de mostrar resultados
+
+        for (Musics m : musicas) {
+            if (m.getMusica().toLowerCase().contains(musicaSearch)) {
+                Label musica = new Label(m.toString());
+                musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-background-color: #6e1fb7; -fx-padding: 5px; -fx-background-radius: 5px; -fx-pref-width:300px;");
+                VBox.setVgrow(scrollPaneMusicas, Priority.ALWAYS);
+                VBox.setMargin(musica, new Insets(2));
+
+                // Evento de clique (como no método listarMusicas)
+                musica.setOnMouseClicked(event -> {
+                    avaliacaoSelecionada = new Avaliacao(
+                            m.getMusica(),
+                            m.getArtista(),
+                            m.getGenero(),
+                            m.getAno()
+                    );
+
+                    txt_nota_msc.clear();
+                    txt_comentario.clear();
+
+                    esconderTodos();
+                    Pane_Avaliacao.setVisible(true);
+                    Pane_Avaliacao.setManaged(true);
+                });
+
+                vboxMusicas.getChildren().add(musica);
+                encontrada = true;
+                txt_pesquisa.clear();
+            }
+        }
+
+        if (!encontrada) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Info");
+            alerta.setContentText("Música não encontrada");
+            alerta.showAndWait();
+        }
+    }
+
 
     public void listarMusicas(List<Musics> musicas) {
         vboxMusicas.getChildren().clear();
@@ -271,3 +324,5 @@ public class User {
     }
 
 }
+
+

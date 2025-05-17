@@ -20,6 +20,13 @@
             <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
+
+    <ImageView fitHeight="130.0" fitWidth="132.0" layoutX="121.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../images/musicap_icon.png" />
+        </image>
+    </ImageView>
+
     <HBox alignment="CENTER" layoutX="0.0" layoutY="583.0" prefHeight="57.0" prefWidth="360.0" spacing="0" style="-fx-background-color: #fff" xmlns:fx="http://javafx.com/fxml/1">
         <children>
             <Region prefWidth="35.0" />
@@ -89,32 +96,6 @@
             </children>
         </VBox>
 
-        <!-- Pane Home -->
-        <VBox fx:id="Pane_Home" prefHeight="445.0" prefWidth="308.0" spacing="10.0">
-            <HBox>
-                <TextField layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="Pesquisar" style="-fx-background-radius:12px" />
-                <Button layoutX="277.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="35.0" style="-fx-background: none">
-               <graphic>
-                      <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../../images/read.png" />
-                          </image>
-                      </ImageView>
-               </graphic></Button>
-            </HBox>
-            <Label layoutX="27.0" layoutY="179.0" prefHeight="20.0" prefWidth="65.0" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Em alta" textFill="WHITE">
-                <font>
-                    <Font size="16.0" />
-                </font>
-            </Label>
-            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED">
-                <content>
-                    <VBox fx:id="vboxMusicas" spacing="5.0" style="-fx-background-color: transparent;" />
-                </content>
-            </ScrollPane>
-
-        </VBox>
-
         <!-- Pane Review de Musicas -->
         <VBox fx:id="Pane_Review" managed="false" prefHeight="429.0" prefWidth="308.0" spacing="10.0" visible="false">
             <children>
@@ -146,6 +127,32 @@
                 <TextField fx:id="txt_novo_comentario" style="-fx-background-radius:12px;" />
                 <Button onAction="#btnSalvarNovaAvaliacao" style="-fx-background-radius:12px; -fx-background-color: #fff" text="Salvar" />
             </children>
+        </VBox>
+
+        <!-- Pane Home -->
+        <VBox fx:id="Pane_Home" prefHeight="445.0" prefWidth="308.0" spacing="10.0">
+            <HBox>
+                <TextField fx:id="txt_pesquisa" layoutX="27.0" layoutY="115.0" prefHeight="30.0" prefWidth="232.0" promptText="Pesquisar" style="-fx-background-radius:12px" />
+                <Button fx:id="btn_pesquisa" layoutX="277.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#btnPesquisarMusica" prefHeight="34.0" prefWidth="35.0" style="-fx-background: none">
+               <graphic>
+                      <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../images/read.png" />
+                          </image>
+                      </ImageView>
+               </graphic></Button>
+            </HBox>
+            <Label layoutX="27.0" layoutY="179.0" prefHeight="20.0" prefWidth="65.0" style="-fx-font-family: 'Poppins SemiBold'; -fx-font-size: 14px" text="Em alta" textFill="WHITE">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Label>
+            <ScrollPane fx:id="scrollPaneMusicas" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED">
+                <content>
+                    <VBox fx:id="vboxMusicas" spacing="5.0" style="-fx-background-color: transparent;" />
+                </content>
+            </ScrollPane>
+
         </VBox>
     </StackPane>
 </Pane>

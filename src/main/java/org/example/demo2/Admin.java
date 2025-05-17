@@ -1,10 +1,13 @@
 package org.example.demo2;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.sql.Connection;
@@ -45,6 +48,7 @@ public class Admin {
 
 
     @FXML private VBox vboxListagem;
+    @FXML private ScrollPane scrollPaneList;
 
     @FXML
     public void initialize() {
@@ -139,7 +143,10 @@ public class Admin {
         vboxListagem.getChildren().clear();
         for (Musics m : musicas) {
             Label musica = new Label(m.toString());
-            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #ffff; -fx-font-weight: bold;");
+            musica.setStyle("-fx-font-size: 14px; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-background-color: #6e1fb7; -fx-padding: 5px; -fx-background-radius: 5px; -fx-pref-width:300px;");
+            VBox.setVgrow(scrollPaneList, Priority.ALWAYS);
+            VBox.setMargin(musica, new Insets(2));// importa javafx.geometry.Insets
+
             vboxListagem.getChildren().add(musica);
         }
     }
